@@ -186,4 +186,4 @@ if __name__ == '__main__' :
     scheduler = BackgroundScheduler()
     job = scheduler.add_job(lambda : queries_functions["delete_expired_sessions"](get_db), 'interval', minutes=60*flask_app.config["SESSION_CLEANUP_INTERVAL"])
     scheduler.start()
-    flask_app.run(debug=True,use_reloader=True)
+    flask_app.run(host="0.0.0.0",debug=True,use_reloader=True)

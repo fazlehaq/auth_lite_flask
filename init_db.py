@@ -1,7 +1,7 @@
 import sqlite3
 import os
 from dotenv import load_dotenv
-from queries import queries
+from queries import queries_sql
 
 if __name__ == "__main__":
     # Load environment variables from .env file
@@ -17,8 +17,8 @@ if __name__ == "__main__":
             cursor = db.cursor()
 
             # Execute the queries to create tables
-            cursor.execute(queries["user"]["create_table"])
-            cursor.execute(queries["session"]["create_table"])
+            cursor.execute(queries_sql["user"]["create_table"])
+            cursor.execute(queries_sql["session"]["create_table"])
 
             # Commit the transaction (this happens automatically when using 'with' in sqlite3)
             db.commit()
